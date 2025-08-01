@@ -9,4 +9,7 @@ module "vpc" {
   private_subnets = ["10.77.4.0/22", "10.77.8.0/22", "10.77.12.0/22"]
 
   enable_nat_gateway = true
+
+  manage_default_security_group = false
+  manage_default_route_table    = false
 }
