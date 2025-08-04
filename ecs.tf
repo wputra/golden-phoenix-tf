@@ -64,4 +64,11 @@ module "app_service" {
       cidr_ipv4   = "0.0.0.0/0"
     }
   }
+  load_balancer = {
+    service = {
+      target_group_arn = aws_lb_target_group.app.arn
+      container_name   = "app"
+      container_port   = local.container_port
+    }
+  }
 }
