@@ -1,3 +1,7 @@
+locals {
+  container_port = 80
+}
+
 module "ecs_cluster" {
   source = "terraform-aws-modules/ecs/aws//modules/cluster"
 
@@ -28,7 +32,7 @@ module "app_service" {
       portMappings = [
         {
           name          = "http"
-          containerPort = 80
+          containerPort = local.container_port
           protocol      = "tcp"
         }
       ]
@@ -46,4 +50,18 @@ module "app_service" {
   }
 
   subnet_ids = module.vpc.private_subnets
+  security_group_ingress_rules = {
+    alb = {
+      description                  = "Service port"
+      from_port                    = local.container_port
+      ip_protocol                  = "tcp"
+      referenced_security_group_id = module.alb.security_group_id
+    }
+  }
+  security_group_egress_rules = {
+    all = {
+      ip_protocol = "-1"
+      cidr_ipv4   = "0.0.0.0/0"
+    }
+  }
 }
