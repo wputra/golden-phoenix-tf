@@ -28,7 +28,7 @@ module "app_service" {
   container_definitions = {
     app = {
       essential = true
-      image     = "public.ecr.aws/aws-containers/ecsdemo-frontend:776fd50"
+      image     = "docker.io/nginx:latest"
       portMappings = [
         {
           name          = "http"
