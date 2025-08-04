@@ -49,6 +49,10 @@ module "app_service" {
     }
   }
 
+  autoscaling_min_capacity = 3
+  autoscaling_max_capacity = 10
+  desired_count            = 3
+
   subnet_ids = module.vpc.private_subnets
   security_group_ingress_rules = {
     alb = {
