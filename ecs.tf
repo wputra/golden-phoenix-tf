@@ -28,7 +28,7 @@ module "app_service" {
   container_definitions = {
     app = {
       essential = true
-      image     = "docker.io/nginx:latest"
+      image     = "057493959474.dkr.ecr.ap-southeast-1.amazonaws.com/golden-phoenix:6218c10"
       portMappings = [
         {
           name          = "http"
