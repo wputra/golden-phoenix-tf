@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Terraform Plan Dev:
+  Terraform-Plan-Dev:
     name: Terraform Plan Dev
     runs-on: ubuntu-latest
     environment: dev
