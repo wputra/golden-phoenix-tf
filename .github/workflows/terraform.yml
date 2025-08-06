@@ -4,9 +4,10 @@ on:
     branches:
       - main
 jobs:
-  tf-plan-dev:
+  Terraform Plan Dev:
     name: Terraform Plan Dev
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,3 +19,9 @@ jobs:
           aws-region: ap-southeast-1
       - name: Install Terraform
         uses: asdf-vm/actions/install@v4
+      - name: Terraform Plan
+        id: tf-plan-dev
+        run: |
+          terraform workspace select ${{ github.environment }}
+          terraform init
+          terraform plan
