@@ -23,5 +23,3 @@ jobs:
         id: tf-plan-dev
         run: |
           terraform workspace select dev
-          terraform init
-          terraform plan
