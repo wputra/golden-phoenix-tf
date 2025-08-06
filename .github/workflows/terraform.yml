@@ -2,7 +2,7 @@ name: Terraform
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   tf-plan-dev:
     name: Terraform Plan Dev
