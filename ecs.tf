@@ -21,8 +21,8 @@ module "app_service" {
   name        = "golden-phoenix-app"
   cluster_arn = module.ecs_cluster.arn
 
-  cpu    = 512
-  memory = 2048
+  cpu    = 256
+  memory = 1024
 
   # Container definition(s)
   container_definitions = {
