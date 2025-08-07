@@ -28,6 +28,10 @@ module "alb" {
       cidr_ipv4   = "10.77.0.0/16"
     }
   }
+
+  access_logs = {
+    bucket = module.lb_logs.s3_bucket_id
+  }
 }
 
 # Manage ALB Target Group & Listener separately due to module limitation with ECS
