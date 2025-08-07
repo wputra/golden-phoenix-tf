@@ -42,8 +42,8 @@ module "app_service" {
       memoryReservation      = 100
 
       restartPolicy = {
-        enabled = true
-        ignoredExitCodes = [1]
+        enabled              = true
+        ignoredExitCodes     = [1]
         restartAttemptPeriod = 60
       }
     }
