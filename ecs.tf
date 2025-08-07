@@ -28,7 +28,7 @@ module "app_service" {
   container_definitions = {
     app = {
       essential = true
-      image     = "057493959474.dkr.ecr.ap-southeast-1.amazonaws.com/golden-phoenix:6218c10"
+      image     = "057493959474.dkr.ecr.ap-southeast-1.amazonaws.com/golden-phoenix"
       portMappings = [
         {
           name          = "http"
@@ -52,6 +52,8 @@ module "app_service" {
   autoscaling_min_capacity = 3
   autoscaling_max_capacity = 10
   desired_count            = 3
+
+  ignore_task_definition_changes = true
 
   subnet_ids = module.vpc.private_subnets
   security_group_ingress_rules = {
